@@ -4,3 +4,7 @@
     flex-direction: $direction;
     align-items: center;
 }
+
+@mixin shadow($blur: 10px, $darkness: 0.1) {
+    box-shadow: 0 0 $blur rgba(0, 0, 0, $darkness);
+}
