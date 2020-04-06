@@ -1,8 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, ExtraOptions } from '@angular/router';
 
-const routes: Routes = [
+import { QuotationDollarComponent } from './quotation-dollar/quotation-dollar.component';
 
+const routes: Routes = [
+    {
+      path: '',
+      component: QuotationDollarComponent
+    }
 ];
 
 const routerOptions: ExtraOptions = {
