@@ -4,28 +4,28 @@
             <h2>Conversor</h2>
             <p>Converta e verifique informações como a Cotação do Dólar, IOF, valor do dólar com ou sem imposto, valor do real com ou sem imposto.</p>
         </section>
-        <form>
-            <input type="text" placeholder="Informe o valor em dólar">
-            <input type="text" placeholder="Informe a taxa do estado">
+        <form [formGroup]="form" (submit)="calculate()">
+            <input type="number" placeholder="Informe o valor em dólar" formControlName="amountDollar">
+            <input type="number" placeholder="Informe a taxa do estado" formControlName="stateTax">
             <p>Informe a forma de pagamento da compra:</p>
             <div class="form-radio">
                 <div>
-                    <input type="radio" id="dinheiro" name="payment" value="Dinheiro">
+                    <input type="radio" id="dinheiro" name="payment" value="dinheiro" formControlName="payment">
                     <label for="dinheiro">Dinheiro</label>
                 </div>
                 <div>
-                    <input type="radio" id="cartao" name="payment" value="Cartão">
+                    <input type="radio" id="cartao" name="payment" value="cartao" formControlName="payment">
                     <label for="cartao">Cartão</label>
                 </div>
             </div>
-            <button type="submit" class="button" (click)="result()">Calcular</button>
+            <button type="submit" class="button">Calcular</button>
         </form>
     </div>
-    <div class="quotation-content">
+    <div class="quotation-content" *ngIf="dollars">
         <section>
             <img src="../../../assets/dollar-bills.png" alt="Dólares">
             <h2>Cotação do dia</h2>
-            <p>R$ 4,15</p>
+            <p>{{ dollars.USD.bid | currency:'BRL':'symbol':'1.2-2'}}</p>
         </section>
     </div>
 </div>    

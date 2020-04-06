@@ -1,24 +1,33 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
+import { registerLocaleData } from '@angular/common';
+import localePt from '@angular/common/locales/pt';
 
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './components/header/header.component';
-import { ConversionFormComponent } from './components/conversion-form/conversion-form.component';
-import { ResultCalculationsComponent } from './components/result-calculations/result-calculations.component';
 import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
+import { QuotationDollarModule } from './quotation-dollar/quotation-dollar.module';
+import { HeaderComponent } from './components/header/header.component';
+
+registerLocaleData(localePt, 'pt-BR');
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    ConversionFormComponent,
-    ResultCalculationsComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    HttpClientModule,
+    AppRoutingModule,
+    QuotationDollarModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: LOCALE_ID,
+      useValue: 'pt-BR'
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

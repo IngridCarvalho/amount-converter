@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ConversionFormComponent } from './conversion-form.component';
+import { QuotationDollarComponent } from './quotation-dollar.component';
 
-describe('ConversionFormComponent', () => {
-  let component: ConversionFormComponent;
-  let fixture: ComponentFixture<ConversionFormComponent>;
+describe('QuotationDollarComponent', () => {
+  let component: QuotationDollarComponent;
+  let fixture: ComponentFixture<QuotationDollarComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ConversionFormComponent ]
+      declarations: [ QuotationDollarComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ConversionFormComponent);
+    fixture = TestBed.createComponent(QuotationDollarComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
