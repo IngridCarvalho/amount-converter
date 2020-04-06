@@ -38,15 +38,15 @@ export class QuotationDollarService {
     return resultConversion;
   }
 
-  private async getStateTax(dollarValue: number, stateTax: number) {
+  async getStateTax(dollarValue: number, stateTax: number) {
     return dollarValue + (dollarValue * (stateTax / 100));
   }
 
-  private async getRealWithoutTax(dollarValue: number, quotationDay: number) {
+  async getRealWithoutTax(dollarValue: number, quotationDay: number) {
     return dollarValue * quotationDay;
   }
 
-  private async getIOF(payment: string, dollarTax: number, quotationDay: number) {
+  async getIOF(payment: string, dollarTax: number, quotationDay: number) {
     if (payment === 'dinheiro') {
       return (dollarTax * quotationDay) * moneyFee;
     } else {
@@ -54,7 +54,7 @@ export class QuotationDollarService {
     }
   }
 
-  private async getRealTax(dollarTax: number, quotationDay: number, valueIOF: number) {
+  async getRealTax(dollarTax: number, quotationDay: number, valueIOF: number) {
     return (dollarTax * quotationDay) + valueIOF;
   }
 
