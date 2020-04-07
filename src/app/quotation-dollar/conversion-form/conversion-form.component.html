@@ -2,30 +2,54 @@
     <div class="conversion-form" id="conversion">
         <section>
             <h2>Conversor</h2>
-            <p>Converta e verifique informações como a Cotação do Dólar, IOF, valor do dólar com ou sem imposto, valor do real com ou sem imposto.</p>
+            <p>Converta e verifique informações como a Cotação do Dólar, IOF, valor do dólar com ou sem imposto, valor
+                do real com ou sem imposto.</p>
         </section>
         <form [formGroup]="form" (submit)="calculate()">
+
             <input type="number" placeholder="Informe o valor em dólar" formControlName="amountDollar">
-            <input type="number" placeholder="Informe a taxa do estado" formControlName="stateTax">
+            <app-error-form 
+                message="O valor do dólar é obrigatório." 
+                [showError]="verifyErrorForm('amountDollar')">
+            </app-error-form>
+            <input type="number" placeholder="Informe a taxa do estado (EUA) em %" formControlName="stateTax">
+            <app-error-form 
+                message="O valor da taxa é obrigatório." 
+                [showError]="verifyErrorForm('stateTax')">
+            </app-error-form>
+
             <p>Informe a forma de pagamento da compra:</p>
             <div class="form-radio">
                 <div>
-                    <input type="radio" id="dinheiro" name="payment" value="dinheiro" formControlName="payment">
+                    <input 
+                        type="radio" id="dinheiro" 
+                        name="payment" value="dinheiro" formControlName="payment">
                     <label for="dinheiro">Dinheiro</label>
                 </div>
                 <div>
-                    <input type="radio" id="cartao" name="payment" value="cartao" formControlName="payment">
+                    <input 
+                        type="radio" id="cartao" 
+                        name="payment" value="cartao" formControlName="payment">
                     <label for="cartao">Cartão</label>
                 </div>
             </div>
+            <app-error-form 
+                message="A forma de pagamento é obrigatória." 
+                [showError]="verifyErrorForm('payment')">
+            </app-error-form>
+
             <button type="submit" class="button">Calcular</button>
         </form>
     </div>
+
     <div class="quotation-content" *ngIf="dollars">
         <section>
             <img src="../../../assets/dollar-bills.png" alt="Dólares">
             <h2>Cotação do dia</h2>
-            <p>{{ dollars.USD.bid | currency:'BRL':'symbol':'1.2-2'}}</p>
+            <p class="quotation-value">{{ dollars.USD.bid | currency:'BRL':'symbol':'1.2-2'}}</p>
+            <span>* Valor do dólar Comercial.</span>
+            <p>Última atualização em: {{ dollars.USD.create_date | date:'dd/MM/yyyy hh:mm' }}</p>
         </section>
     </div>
-</div>    
+
+</div>

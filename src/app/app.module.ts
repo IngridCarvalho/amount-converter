@@ -14,7 +14,7 @@ registerLocaleData(localePt, 'pt-BR');
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +26,7 @@ registerLocaleData(localePt, 'pt-BR');
     {
       provide: LOCALE_ID,
       useValue: 'pt-BR'
-    }
+    },
   ],
   bootstrap: [AppComponent]
 })

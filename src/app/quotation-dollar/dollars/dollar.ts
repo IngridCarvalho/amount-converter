@@ -1,3 +1,7 @@
+export interface QuotationDollar {
+    USD: DataDollar;
+    USDT: DataDollar;
+}
 export interface DataDollar {
     code: string;
     codein: string;

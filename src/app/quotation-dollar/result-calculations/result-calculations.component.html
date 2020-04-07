@@ -1,24 +1,38 @@
-<div class="result-content" id="result">
+<div class="result-content" id="result" *ngIf="results">
     <section>
         <h2>Resultado</h2>
         <div class="data-result">
-            <div class="col-1">
+            <div class="commercial-dollar">
+                <h3>Dólar Comercial</h3>
                 <span>Cotação do Dólar:</span>
-                <p>R$ 1000,00</p>
-                <span>Dólar com imposto:</span>
-                <p>R$ 1000,00</p>
-                <span>Real com imposto:</span>
-                <p>R$ 1000,00</p>
-            </div>
-            <div class="col-2">
-                <span>IOF:</span>
-                <p>R$ 1000,00</p>
+                    <p>{{ results.USD.quotationDollar | currency:'BRL':'symbol':'1.2-2'}}</p>
+                <span>IOF {{ taxIOF * 100 | number}}%:</span>
+                    <p>{{ results.USD.valueIOF | currency:'BRL':'symbol':'1.2-2'}}</p>
                 <span>Dólar sem imposto:</span>
-                <p>R$ 1000,00</p>
+                    <p>{{ results.USD.dollarWithoutTax | currency:'USD':'symbol':'1.2-2'}}</p>
+                <span>Dólar com imposto:</span>
+                    <p>{{ results.USD.dollarTax | currency:'USD':'symbol':'1.2-2'}}</p>
                 <span>Real sem imposto:</span>
-                <p>R$ 1000,00</p>
+                    <p>{{ results.USD.realWithoutTax | currency:'BRL':'symbol':'1.2-2'}}</p>
+                <span>Real com imposto:</span>
+                    <p>{{ results.USD.realTax | currency:'BRL':'symbol':'1.2-2'}}</p>
+            </div>
+            <div class="tourism-dollar">
+                <h3>Dólar Turismo</h3>
+                <span>Cotação do Dólar:</span>
+                    <p>{{ results.USDT.quotationDollar | currency:'BRL':'symbol':'1.2-2' }}</p>
+                <span>IOF {{ taxIOF * 100 | number }}%:</span>
+                    <p>{{ results.USDT.valueIOF | currency:'BRL':'symbol':'1.2-2'}}</p>
+                <span>Dólar sem imposto:</span>
+                    <p>{{ results.USDT.dollarWithoutTax | currency:'BRL':'symbol':'1.2-2'}}</p>
+                <span>Dólar com imposto:</span>
+                    <p>{{ results.USDT.dollarTax | currency:'USD':'symbol':'1.2-2'}}</p>
+                <span>Real sem imposto:</span>
+                    <p>{{ results.USDT.realWithoutTax | currency:'USD':'symbol':'1.2-2'}}</p>
+                <span>Real com imposto:</span>
+                    <p>{{ results.USDT.realTax | currency:'BRL':'symbol':'1.2-2'}}</p>
             </div>  
         </div>
-        <button class="button" (click)="return()">Fazer outro cálculo</button> 
+        <button class="button" (click)="returnForm()">Fazer outro cálculo</button> 
     </section>
 </div>
