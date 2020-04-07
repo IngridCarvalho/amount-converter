@@ -6,3 +6,8 @@ export class ResultCalculation {
     realWithoutTax: number;
     realTax: number;
 }
+export interface ResultType {
+    USD: ResultCalculation;
+    USDT: ResultCalculation;
+    payment: string;
+}

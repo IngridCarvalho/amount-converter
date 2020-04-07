@@ -3,9 +3,8 @@ import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { QuotationDollarService } from 'src/app/quotation-dollar/service/quotation-dollar.service';
-import { ConversionData } from './conversion-data';
-import { ResultCalculation } from 'src/app/quotation-dollar/result-calculations/result/result-calculation';
-import { QuotationDollar } from 'src/app/quotation-dollar/dollars/quotation-dollar';
+import { QuotationDollar } from 'src/app/quotation-dollar/dollars/dollar';
+import { ResultType } from '../result-calculations/result/result';
 
 @Component({
   selector: 'app-conversion-form',
@@ -34,12 +33,22 @@ export class ConversionFormComponent implements OnInit {
   }
 
   async calculate() {
-    const dataForm: ConversionData = this.form.value;
+    if (this.form.valid) {
+      this.router.navigate(['']);
 
-    const resultUSD: ResultCalculation = await this.quotationDollarService
-      .calculateConversion(this.form.value, this.dollars.USD.bid);
+      const results: ResultType = {
+        USD: await this.quotationDollarService
+            .calculateConversion(this.form.value, this.dollars.USD.bid),
+        USDT: await this.quotationDollarService
+            .calculateConversion(this.form.value, this.dollars.USDT.bid),
+        payment: this.form.get('payment').value
+      };
 
-    this.router.navigate(['/'], {fragment: 'result'});
+      this.quotationDollarService.setResultCalculation(results);
+      this.form.reset();
+    } else {
+      this.form.markAllAsTouched();
+    }
   }
 
   getQuotation() {

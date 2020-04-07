@@ -46,8 +46,9 @@
         <section>
             <img src="../../../assets/dollar-bills.png" alt="Dólares">
             <h2>Cotação do dia</h2>
-            <p>{{ dollars.USD.bid | currency:'BRL':'symbol':'1.2-2'}}</p>
+            <p class="quotation-value">{{ dollars.USD.bid | currency:'BRL':'symbol':'1.2-2'}}</p>
             <span>* Valor do dólar Comercial.</span>
+            <p>Última atualização em: {{ dollars.USD.create_date | date:'dd/MM/yyyy hh:mm' }}</p>
         </section>
     </div>
 

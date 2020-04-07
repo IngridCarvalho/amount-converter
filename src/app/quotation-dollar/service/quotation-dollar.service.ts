@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
+import { BehaviorSubject } from 'rxjs';
 
-import { ConversionData } from 'src/app/quotation-dollar/conversion-form/conversion-data';
-import { ResultCalculation } from 'src/app/quotation-dollar/result-calculations/result/result-calculation';
-import { QuotationDollar } from '../dollars/quotation-dollar';
+import { ConversionData } from 'src/app/quotation-dollar/conversion-form/conversion/conversion-data';
+import { ResultType, ResultCalculation } from 'src/app/quotation-dollar/result-calculations/result/result';
+import { QuotationDollar } from '../dollars/dollar';
 
 const API = environment.apiUrl;
 const cardFee = environment.cardFee;
@@ -15,12 +16,22 @@ const moneyFee = environment.moneyFee;
 })
 export class QuotationDollarService {
 
+  private resultCalculation = new BehaviorSubject<ResultType>(null);
+
   constructor(
     private http: HttpClient
   ) { }
 
   getQuotationDollar() {
     return this.http.get<QuotationDollar>(`${API}USD-BRL,USDT-BRL`);
+  }
+
+  setResultCalculation(results) {
+    this.resultCalculation.next(results);
+  }
+
+  getResultCalculation() {
+    return this.resultCalculation;
   }
 
   async calculateConversion(conversionData: ConversionData, quotationDay: number) {
