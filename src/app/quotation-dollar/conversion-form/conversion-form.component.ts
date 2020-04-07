@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { QuotationDollarService } from 'src/app/quotation-dollar/service/quotation-dollar.service';
 import { ConversionData } from './conversion-data';
 import { ResultCalculation } from 'src/app/quotation-dollar/result-calculations/result/result-calculation';
 import { QuotationDollar } from 'src/app/quotation-dollar/dollars/quotation-dollar';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-conversion-form',
@@ -45,6 +45,14 @@ export class ConversionFormComponent implements OnInit {
   getQuotation() {
     this.quotationDollarService.getQuotationDollar()
       .subscribe(content => this.dollars = content);
+  }
+
+  verifyErrorForm(field) {
+    if (this.form.get(field).invalid && this.form.get(field).touched) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
 }

@@ -8,13 +8,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { QuotationDollarModule } from './quotation-dollar/quotation-dollar.module';
 import { HeaderComponent } from './components/header/header.component';
+import { ErrorFormComponent } from './components/error-form/error-form.component';
 
 registerLocaleData(localePt, 'pt-BR');
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
