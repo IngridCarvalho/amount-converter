@@ -10,11 +10,11 @@ import { ResultType } from '../result-calculations/result/result';
 
 
 @Component({
-  selector: 'app-conversion-form',
-  templateUrl: './conversion-form.component.html',
-  styleUrls: ['./conversion-form.component.scss']
+  selector: 'app-quotation-form',
+  templateUrl: './quotation-form.component.html',
+  styleUrls: ['./quotation-form.component.scss']
 })
-export class ConversionFormComponent implements OnInit, OnDestroy {
+export class QuotationFormComponent implements OnInit, OnDestroy {
 
   dollars: QuotationDollar;
   form: FormGroup;

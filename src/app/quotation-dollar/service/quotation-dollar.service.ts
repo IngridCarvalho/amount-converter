@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { take } from 'rxjs/operators';
 import { BehaviorSubject } from 'rxjs';
 
-import { ConversionData } from 'src/app/quotation-dollar/conversion-form/conversion/conversion-data';
+import { FormData } from '../quotation-form/quotation/form-data';
 import { ResultType, ResultCalculation } from 'src/app/quotation-dollar/result-calculations/result/result';
 import { QuotationDollar } from '../dollars/dollar';
 
@@ -35,16 +35,16 @@ export class QuotationDollarService {
     return this.resultCalculation;
   }
 
-  async calculateConversion(conversionData: ConversionData, quotationDay: number) {
+  async calculateConversion(formData: FormData, quotationDay: number) {
 
     const resultConversion = new ResultCalculation();
 
     resultConversion.quotationDollar = quotationDay;
-    resultConversion.dollarWithoutTax = conversionData.amountDollar;
+    resultConversion.dollarWithoutTax = formData.amountDollar;
 
-    resultConversion.dollarTax = await this.getStateTax(conversionData.amountDollar, conversionData.stateTax);
-    resultConversion.realWithoutTax = await this.getRealWithoutTax(conversionData.amountDollar, quotationDay);
-    resultConversion.valueIOF = await this.getIOF(conversionData.payment, resultConversion.dollarTax, quotationDay);
+    resultConversion.dollarTax = await this.getStateTax(formData.amountDollar, formData.stateTax);
+    resultConversion.realWithoutTax = await this.getRealWithoutTax(formData.amountDollar, quotationDay);
+    resultConversion.valueIOF = await this.getIOF(formData.payment, resultConversion.dollarTax, quotationDay);
     resultConversion.realTax = await this.getRealTax(resultConversion.dollarTax, quotationDay, resultConversion.valueIOF);
 
     return resultConversion;

@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="conversion-form" id="conversion">
+    <div class="quotation-form" id="conversion">
         <section>
             <h2>Conversor</h2>
             <p>Converta e verifique informações como a Cotação do Dólar, IOF, valor do dólar com ou sem imposto, valor
@@ -42,14 +42,10 @@
         </form>
     </div>
 
-    <div class="quotation-content" *ngIf="dollars">
-        <section>
-            <img src="../../../assets/dollar-bills.png" alt="Dólares">
-            <h2>Cotação do dia</h2>
-            <p class="quotation-value">{{ dollars.USD.bid | currency:'BRL':'symbol':'1.2-2'}}</p>
-            <span>* Valor do dólar Comercial.</span>
-            <p>Última atualização em: {{ dollars.USD.create_date | date:'dd/MM/yyyy hh:mm' }}</p>
-        </section>
-    </div>
-
+    <app-quotation-value
+        [dollarValue]="dollars.USD.bid" 
+        [updateDate]="dollars.USD.create_date"
+        *ngIf="dollars"
+        class="quotation-content">
+    </app-quotation-value>
 </div>
