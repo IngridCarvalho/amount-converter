@@ -50,7 +50,11 @@ export class QuotationDollarService {
   }
 
   async getStateTax(dollarValue: number, stateTax: number) {
-    return dollarValue + (dollarValue * (stateTax / 100));
+    if (stateTax > 0) {
+      return dollarValue + (dollarValue * (stateTax / 100));
+    } else {
+      return dollarValue;
+    }
   }
 
   async getRealWithoutTax(dollarValue: number, quotationDay: number) {
