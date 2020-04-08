@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
+import { take } from 'rxjs/operators';
 import { BehaviorSubject } from 'rxjs';
 
 import { ConversionData } from 'src/app/quotation-dollar/conversion-form/conversion/conversion-data';
@@ -23,7 +24,7 @@ export class QuotationDollarService {
   ) { }
 
   getQuotationDollar() {
-    return this.http.get<QuotationDollar>(`${API}USD-BRL,USDT-BRL`);
+    return this.http.get<QuotationDollar>(`${API}USD-BRL,USDT-BRL`).pipe(take(1));
   }
 
   setResultCalculation(results) {

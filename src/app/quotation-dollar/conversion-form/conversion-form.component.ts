@@ -1,20 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { interval, Subscription } from 'rxjs';
+import { switchMap, map } from 'rxjs/operators';
 
 import { QuotationDollarService } from 'src/app/quotation-dollar/service/quotation-dollar.service';
 import { QuotationDollar } from 'src/app/quotation-dollar/dollars/dollar';
 import { ResultType } from '../result-calculations/result/result';
+
 
 @Component({
   selector: 'app-conversion-form',
   templateUrl: './conversion-form.component.html',
   styleUrls: ['./conversion-form.component.scss']
 })
-export class ConversionFormComponent implements OnInit {
+export class ConversionFormComponent implements OnInit, OnDestroy {
 
   dollars: QuotationDollar;
   form: FormGroup;
+  subscription: Subscription;
 
   constructor(
     private router: Router,
@@ -52,7 +56,15 @@ export class ConversionFormComponent implements OnInit {
   }
 
   getQuotation() {
-    this.quotationDollarService.getQuotationDollar()
+    // takes the quote and updates it every 30 seconds
+    this.subscription = this.quotationDollarService.getQuotationDollar()
+      .pipe(
+        map(content => this.dollars = content),
+        switchMap(() => interval(30000))
+      )
+      .pipe(
+        switchMap(() => this.quotationDollarService.getQuotationDollar())
+      )
       .subscribe(content => this.dollars = content);
   }
 
@@ -62,6 +74,10 @@ export class ConversionFormComponent implements OnInit {
     } else {
       return false;
     }
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 
 }
