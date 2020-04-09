@@ -1,3 +1,5 @@
+@import './variables';
+
 @mixin flex($position-content: center, $direction: column) {
     display: flex;
     justify-content: $position-content;
@@ -5,6 +7,19 @@
     align-items: center;
 }
 
-@mixin shadow($blur: 10px, $darkness: 0.1) {
+@mixin title-green() {
+    color: $color-green;
+    font-size: 30px;
+    text-transform: uppercase;
+}
+
+@mixin border-shadow($blur: 10px, $darkness: 0.1, $radius: 8px) {
     box-shadow: 0 0 $blur rgba(0, 0, 0, $darkness);
+    border-radius: $radius;
+}
+
+@mixin mobile{
+    @media (max-width: #{$mobile-max}) {
+        @content;
+    }
 }

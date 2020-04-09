@@ -1,51 +1,49 @@
 <div class="container">
-    <div class="quotation-form" id="conversion">
+    <div class="conversion" id="conversion">
         <section>
             <h2>Conversor</h2>
-            <p>Converta e verifique informações como a Cotação do Dólar, IOF, valor do dólar com ou sem imposto, valor
-                do real com ou sem imposto.</p>
+            <p>Converta e verifique informações como a Cotação do Dólar, IOF, valor do dólar com e sem imposto, valor
+                do real com e sem imposto.</p>
+            <form [formGroup]="form" (submit)="calculate()" class="quotation-form">
+                <input type="number" placeholder="Informe o valor em dólar" formControlName="amountDollar">
+                <app-error-form 
+                    message="O valor do dólar é obrigatório." 
+                    [showError]="verifyErrorForm('amountDollar')">
+                </app-error-form>
+                <input type="number" placeholder="Informe a taxa do estado (EUA) em %" formControlName="stateTax">
+                <app-error-form 
+                    message="O valor da taxa é obrigatório." 
+                    [showError]="verifyErrorForm('stateTax')">
+                </app-error-form>
+
+                <label>Informe a forma de pagamento da compra:</label>
+                <div class="form-radio">
+                    <div>
+                        <input 
+                            type="radio" id="dinheiro" 
+                            name="payment" value="dinheiro" formControlName="payment">
+                        <label for="dinheiro">Dinheiro</label>
+                    </div>
+                    <div>
+                        <input 
+                            type="radio" id="cartao" 
+                            name="payment" value="cartao" formControlName="payment">
+                        <label for="cartao">Cartão</label>
+                    </div>
+                </div>
+                <app-error-form 
+                    message="A forma de pagamento é obrigatória." 
+                    [showError]="verifyErrorForm('payment')">
+                </app-error-form>
+
+                <button type="submit" class="button">Calcular</button>
+            </form>
         </section>
-        <form [formGroup]="form" (submit)="calculate()">
-
-            <input type="number" placeholder="Informe o valor em dólar" formControlName="amountDollar">
-            <app-error-form 
-                message="O valor do dólar é obrigatório." 
-                [showError]="verifyErrorForm('amountDollar')">
-            </app-error-form>
-            <input type="number" placeholder="Informe a taxa do estado (EUA) em %" formControlName="stateTax">
-            <app-error-form 
-                message="O valor da taxa é obrigatório." 
-                [showError]="verifyErrorForm('stateTax')">
-            </app-error-form>
-
-            <p>Informe a forma de pagamento da compra:</p>
-            <div class="form-radio">
-                <div>
-                    <input 
-                        type="radio" id="dinheiro" 
-                        name="payment" value="dinheiro" formControlName="payment">
-                    <label for="dinheiro">Dinheiro</label>
-                </div>
-                <div>
-                    <input 
-                        type="radio" id="cartao" 
-                        name="payment" value="cartao" formControlName="payment">
-                    <label for="cartao">Cartão</label>
-                </div>
-            </div>
-            <app-error-form 
-                message="A forma de pagamento é obrigatória." 
-                [showError]="verifyErrorForm('payment')">
-            </app-error-form>
-
-            <button type="submit" class="button">Calcular</button>
-        </form>
     </div>
 
     <app-quotation-value
-        [dollarValue]="dollars.USD.bid" 
-        [updateDate]="dollars.USD.create_date"
-        *ngIf="dollars"
+        [dollarValue]="dollars?.USD.bid" 
+        [updateDate]="dollars?.USD.create_date"
         class="quotation-content">
     </app-quotation-value>
 </div>

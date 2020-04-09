@@ -5,7 +5,7 @@ header {
     width: 100%;
     padding: 15px 0px;
     background-color: #FFF;
-    @include shadow(15px, 0.2);
+    @include border-shadow(15px, 0.2, 0);
     @include flex(left, row);
     text-align: center;
 
@@ -29,9 +29,7 @@ header {
     .title {
 
         h1 {
-            font-size: 30px;
-            text-transform: uppercase;
-            color: $color-green;
+            @include title-green();
         }
     }
 }
