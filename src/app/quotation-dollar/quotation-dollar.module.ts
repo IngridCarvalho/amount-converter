@@ -7,12 +7,14 @@ import { QuotationFormComponent } from './quotation-form/quotation-form.componen
 import { ResultCalculationsComponent } from './result-calculations/result-calculations.component';
 import { ErrorFormModule } from '../components/error-form/error-form.module';
 import { QuotationValueComponent } from './quotation-form/quotation-value/quotation-value.component';
+import { ResultDataComponent } from './result-calculations/result-data/result-data.component';
 @NgModule({
     declarations: [
         QuotationDollarComponent,
         QuotationFormComponent,
         ResultCalculationsComponent,
-        QuotationValueComponent
+        QuotationValueComponent,
+        ResultDataComponent
     ],
     imports: [
         CommonModule,
@@ -21,7 +23,8 @@ import { QuotationValueComponent } from './quotation-form/quotation-value/quotat
         ErrorFormModule
     ],
     exports: [
-        QuotationValueComponent
+        QuotationValueComponent,
+        ResultDataComponent
     ]
 })
 export class QuotationDollarModule {
