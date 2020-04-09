@@ -1,0 +1,17 @@
+<div>
+    <h3>Dólar {{ dollarType }}</h3>
+    
+    <span>Cotação do Dólar:</span>
+        <p>{{ resultData.quotationDollar | currency:'BRL':'symbol':'1.2-2'}}</p>
+    <span>IOF {{ taxIOF * 100 | number}}%:</span>
+        <p>{{ resultData.valueIOF | currency:'BRL':'symbol':'1.2-2'}}</p>
+    <span>Dólar sem imposto:</span>
+        <p>{{ resultData.dollarWithoutTax | currency:'USD':'symbol':'1.2-2'}}</p>
+    <span>Dólar com imposto:</span>
+        <p>{{ resultData.dollarTax | currency:'USD':'symbol':'1.2-2'}}</p>
+    <span>Real sem imposto:</span>
+        <p>{{ resultData.realWithoutTax | currency:'BRL':'symbol':'1.2-2'}}</p>
+    <span>Real com imposto:</span>
+        <p>{{ resultData.realTax | currency:'BRL':'symbol':'1.2-2'}}</p>
+</div>
+

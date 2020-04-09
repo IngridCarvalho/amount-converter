@@ -6,53 +6,27 @@
     padding: 30px;
     margin: 0px auto 40px auto;
     background-color: #FFF;
-    @include shadow(100px, 0.2);
-    border-radius: 8px;
+    @include border-shadow(100px, 0.2);
 
-    @media (max-width: $mobile-max) {
+    @include mobile {
         width: 90%;
     }
 
     h2 {
-        color: $color-green;
-        font-size: 30px;
+        @include title-green();
         text-align: center;
-        text-transform: uppercase;
     }
 
-    .data-result {
+    .result-data {
         @include flex(space-between, row);
 
-        @media (max-width: $mobile-max) {
-            @include flex(center, column);
-        }
-
-        .commercial-dollar, .tourism-dollar {
+        .result {
             width: 100%;
             margin: 25px 50px 0px 50px;
-            list-style: none;
-
-            h3 {
-                font-size: 22px;
-                margin-bottom: 20px;
-                text-align: center;
-            }
-
-            span {
-                color: $color-subtitles;
-                font-weight: bold;
-                font-size: 18px;
-            }
-
-            p {
-                font-size: 18px;
-                text-align: right;
-                border-bottom: dashed 1px $color-content;
-                padding-bottom: 8px;
-                margin-bottom: 8px;
-            }
-        
         }
 
+        @include mobile{
+            @include flex(center, column);
+        }
     }
 }

@@ -1,0 +1,21 @@
+@import '../../../../sass/variables';
+
+h3 {
+    font-size: 22px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+span {
+    color: $color-subtitles;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+p {
+    font-size: 18px;
+    text-align: right;
+    border-bottom: dashed 1px $color-content;
+    padding-bottom: 8px;
+    margin-bottom: 8px;
+}
