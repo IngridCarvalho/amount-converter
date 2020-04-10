@@ -18,8 +18,12 @@ describe('QuotationDollarService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('the result of adding the dollar to the state rate should be 1100', async () => {
+  it('the result of adding the dollar to the state rate should be 1095', async () => {
     expect(await service.getStateTax(1000, 9.5)).toEqual(1095);
+  });
+
+  it('the result of adding the dollar to the state rate 0, should be 1000', async () => {
+    expect(await service.getStateTax(1000, 0)).toEqual(1000);
   });
 
   it('the result of real without tax should be 5350', async () => {
