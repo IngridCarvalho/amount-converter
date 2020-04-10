@@ -8,6 +8,7 @@ import { ResultCalculationsComponent } from './result-calculations/result-calcul
 import { ErrorFormModule } from '../components/error-form/error-form.module';
 import { QuotationValueComponent } from './quotation-form/quotation-value/quotation-value.component';
 import { ResultDataComponent } from './result-calculations/result-data/result-data.component';
+import { IconButtonModule } from '../components/icon-button/icon-button.module';
 @NgModule({
     declarations: [
         QuotationDollarComponent,
@@ -20,7 +21,8 @@ import { ResultDataComponent } from './result-calculations/result-data/result-da
         CommonModule,
         FormsModule,
         ReactiveFormsModule,
-        ErrorFormModule
+        ErrorFormModule,
+        IconButtonModule
     ],
     exports: [
         QuotationValueComponent,

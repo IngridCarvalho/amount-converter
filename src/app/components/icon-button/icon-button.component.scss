@@ -1,0 +1,28 @@
+@import '../../../sass/variables';
+@import '../../../sass/mixins';
+
+.help {
+    width: 80px;
+    height: 80px;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
+
+.help-button {
+    width: 60px;
+    height: 60px;
+    background: $color-green;
+    border: 0;
+    @include border-shadow(20px, 0.3, 50%);
+    color: #FFF;
+    font-weight: bold;
+    font-size: 24px;
+    text-align: center;
+    text-decoration: none;
+    transition: filter 0.2s;
+
+    &:hover {
+        filter: brightness(90%);
+    }
+}

@@ -2,7 +2,7 @@
 @import '../../../../sass/variables';
 
 aside {
-    margin: 40px;
+    margin: 40px 60px 40px 20px;
     text-align: center;
     line-height: 50px;
     
@@ -18,10 +18,6 @@ aside {
         padding: 50px;
         background: lighten($color-green, 40);
         @include border-shadow(100px, 0.2);
-    }
-
-    span {
-        font-style: italic;
     }
 
     @include mobile {

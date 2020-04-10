@@ -1,13 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { registerLocaleData } from '@angular/common';
+import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
 import localePt from '@angular/common/locales/pt';
 
 import { AppComponent } from './app.component';
-import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule } from '@angular/common/http';
-import { QuotationDollarModule } from './quotation-dollar/quotation-dollar.module';
 import { HeaderComponent } from './components/header/header.component';
+import { QuotationDollarModule } from './quotation-dollar/quotation-dollar.module';
+import { QuestionsCalculationsModule } from './questions-calculations/questions-calculations.module';
 
 registerLocaleData(localePt, 'pt-BR');
 
@@ -20,7 +21,8 @@ registerLocaleData(localePt, 'pt-BR');
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    QuotationDollarModule
+    QuotationDollarModule,
+    QuestionsCalculationsModule
   ],
   providers: [
     {
