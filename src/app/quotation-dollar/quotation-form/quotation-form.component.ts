@@ -76,6 +76,10 @@ export class QuotationFormComponent implements OnInit, OnDestroy {
     }
   }
 
+  help() {
+    this.router.navigate(['/questions']);
+  }
+
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
   }

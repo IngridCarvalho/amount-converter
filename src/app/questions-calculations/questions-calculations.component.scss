@@ -1,0 +1,24 @@
+@import '../../sass/mixins';
+
+.container {
+    width: 90%;
+    padding: 30px;
+    margin: 40px auto;
+    background-color: #FFF;
+    @include border-shadow(100px, 0.1);
+}
+
+.container  ol {
+    margin: 30px;
+
+    li {
+        line-height: 30px;
+        margin: 20px 0;
+        
+        p {
+            text-align: justify;
+            display: flex;
+            flex-direction: column;
+        }
+    }
+}

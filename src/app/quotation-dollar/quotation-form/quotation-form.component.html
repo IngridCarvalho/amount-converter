@@ -16,7 +16,7 @@
                     [showError]="verifyErrorForm('stateTax')">
                 </app-error-form>
 
-                <label>Informe a forma de pagamento da compra:</label>
+                <p>Informe a forma de pagamento da compra:</p>
                 <div class="form-radio">
                     <div>
                         <input 
@@ -46,4 +46,8 @@
         [updateDate]="dollars?.USD.create_date"
         class="quotation-content">
     </app-quotation-value>
+    
+    <app-icon-button 
+        (action)="help()">
+    </app-icon-button>
 </div>
