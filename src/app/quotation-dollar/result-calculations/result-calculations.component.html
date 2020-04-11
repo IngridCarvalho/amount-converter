@@ -1,20 +1,18 @@
-<div class="result-content" id="result" *ngIf="results">
-    <section>
-        <h2>Resultado</h2>
-        <div class="result-data">
-            <app-result-data 
-                [resultData]="results.USD" 
-                [taxIOF]="taxIOF" 
-                dollarType="Comercial"
-                class="result">
-            </app-result-data>
-            <app-result-data 
-                [resultData]="results.USDT" 
-                [taxIOF]="taxIOF" 
-                dollarType="Turismo"
-                class="result">
-            </app-result-data>
-        </div>
-        <button class="button" (click)="returnForm()">Fazer outro cálculo</button> 
-    </section>
-</div>
+<section class="result-container" id="result" *ngIf="results">
+    <h2 class="result-title">Resultado</h2>
+    <div class="result-data">
+        <app-result-data 
+            [resultData]="results.USD" 
+            [taxIOF]="taxIOF" 
+            dollarType="Comercial"
+            class="result">
+        </app-result-data>
+        <app-result-data 
+            [resultData]="results.USDT" 
+            [taxIOF]="taxIOF" 
+            dollarType="Turismo"
+            class="result">
+        </app-result-data>
+    </div>
+    <button class="button" (click)="returnForm()">Fazer outro cálculo</button> 
+</section>

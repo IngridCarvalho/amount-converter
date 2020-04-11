@@ -1,7 +1,7 @@
 @import '../../../sass/variables';
 @import '../../../sass/mixins';
 
-header {
+.header-content {
     width: 100%;
     padding: 15px 0px;
     background-color: #FFF;
@@ -26,10 +26,7 @@ header {
         }
     }
 
-    .title {
-
-        h1 {
-            @include title-green();
-        }
+    .title-header {
+        @include title-green();
     }
 }

@@ -1,12 +1,13 @@
 @import '../../../../sass/mixins';
 @import '../../../../sass/variables';
 
-aside {
+.quotation-content {
+    
     margin: 40px 60px 40px 20px;
     text-align: center;
     line-height: 50px;
     
-    h2 {
+    .quotation-title {
         font-size: 30px;
         text-transform: uppercase;
     }
@@ -23,7 +24,7 @@ aside {
     @include mobile {
         margin: 20px 0 0 0;
 
-        h2 {
+        .quotation-title {
             font-size: 25px;
         }
 
@@ -33,7 +34,7 @@ aside {
             font-size: 30px;
         }
 
-        img {
+        .quotation-image {
             width: 80px;
         }
     }

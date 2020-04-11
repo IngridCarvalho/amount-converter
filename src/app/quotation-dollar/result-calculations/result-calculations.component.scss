@@ -1,7 +1,7 @@
 @import '../../../sass/variables';
 @import '../../../sass/mixins';
 
-.result-content {
+.result-container {
     width: 70%;
     padding: 30px;
     margin: 0px auto 40px auto;
@@ -12,7 +12,7 @@
         width: 90%;
     }
 
-    h2 {
+    .result-title {
         @include title-green();
         text-align: center;
     }

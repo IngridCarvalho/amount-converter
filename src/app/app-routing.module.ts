@@ -19,6 +19,7 @@ const routerOptions: ExtraOptions = {
   scrollPositionRestoration: 'enabled',
   anchorScrolling: 'enabled',
   scrollOffset: [0, 64],
+  useHash: true
 };
 
 @NgModule({

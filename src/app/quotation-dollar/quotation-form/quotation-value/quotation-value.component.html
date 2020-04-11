@@ -1,6 +1,9 @@
-<aside>
-    <img src="../../../../assets/dollar-bills.png" alt="Dólares">
-    <h2>Cotação do dia</h2>
+<aside class="quotation-content">
+    <img 
+        src="../../../../assets/dollar-bills.png" 
+        alt="Dólares" 
+        class="quotation-image">
+    <h2 class="quotation-title">Cotação do dia</h2>
     <p class="quotation-value">{{ dollarValue | currency:'BRL':'symbol':'1.2-2'}}</p>
     <em>* Valor do dólar Comercial.</em>
     <p>Última atualização em: {{ updateDate | date:'short' : 'zzz' }}</p>

@@ -1,27 +1,28 @@
 @import '../../../../sass/variables';
 
-ul {
+.result-list {
     list-style: none;
 
-    h3 {
+    .result-list-title {
         font-size: 22px;
         margin-bottom: 20px;
         text-align: center;
     }
+    
+    li {
+        strong {
+            color: $color-subtitles;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+        p {
+            font-size: 18px;
+            text-align: right;
+            border-bottom: dashed 1px $color-content;
+            padding-bottom: 8px;
+            margin-bottom: 8px;
+        }
+    }
 }
 
-li {
-    strong {
-        color: $color-subtitles;
-        font-weight: bold;
-        font-size: 18px;
-    }
-    
-    p {
-        font-size: 18px;
-        text-align: right;
-        border-bottom: dashed 1px $color-content;
-        padding-bottom: 8px;
-        margin-bottom: 8px;
-    }
-}

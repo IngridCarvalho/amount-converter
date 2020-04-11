@@ -1,7 +1,7 @@
 @import '../../../sass/variables';
 @import '../../../sass/mixins';
 
-.help {
+.icon-content {
     width: 80px;
     height: 80px;
     position: fixed;
@@ -9,7 +9,7 @@
     right: 0;
 }
 
-.help-button {
+.icon-button {
     width: 60px;
     height: 60px;
     background: $color-green;

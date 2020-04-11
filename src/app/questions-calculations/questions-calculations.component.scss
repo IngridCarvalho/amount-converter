@@ -1,6 +1,6 @@
 @import '../../sass/mixins';
 
-.container {
+.questions-container {
     width: 90%;
     padding: 30px;
     margin: 40px auto;
@@ -8,7 +8,8 @@
     @include border-shadow(100px, 0.1);
 }
 
-.container  ol {
+.questions-container  .questions-list {
+    
     margin: 30px;
 
     li {
