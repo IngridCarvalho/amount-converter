@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" *ngIf="!showError">
     <section class="conversion" id="conversion">
         <h2>Conversor</h2>
         <p>Converta e verifique informações como a Cotação do Dólar, IOF, valor do dólar com e sem imposto, valor
@@ -60,4 +60,8 @@
     <app-icon-button 
         (action)="help()">
     </app-icon-button>
+</div>
+
+<div *ngIf="showError" class="error">
+    <p>Desculpe! Ocorreu um erro para buscar os dados da cotação, por favor tente mais tarde!</p>
 </div>

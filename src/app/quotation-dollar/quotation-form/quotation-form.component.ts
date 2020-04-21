@@ -8,7 +8,6 @@ import { QuotationDollarService } from 'src/app/quotation-dollar/service/quotati
 import { QuotationDollar } from 'src/app/quotation-dollar/dollars/dollar';
 import { ResultType } from '../result-calculations/result/result';
 
-
 @Component({
   selector: 'app-quotation-form',
   templateUrl: './quotation-form.component.html',
@@ -19,6 +18,7 @@ export class QuotationFormComponent implements OnInit, OnDestroy {
   dollars: QuotationDollar;
   form: FormGroup;
   subscription: Subscription;
+  showError = false;
 
   constructor(
     private router: Router,
@@ -65,7 +65,9 @@ export class QuotationFormComponent implements OnInit, OnDestroy {
       .pipe(
         switchMap(() => this.quotationDollarService.getQuotationDollar())
       )
-      .subscribe(content => this.dollars = content);
+      .subscribe(content => this.dollars = content,
+                 error => this.showError = true
+      );
   }
 
   verifyErrorForm(field) {

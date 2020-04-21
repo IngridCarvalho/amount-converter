@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
@@ -7,16 +7,13 @@ import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
   templateUrl: './questions-calculations.component.html',
   styleUrls: ['./questions-calculations.component.scss']
 })
-export class QuestionsCalculationsComponent implements OnInit {
+export class QuestionsCalculationsComponent {
 
   faArrowLeft = faArrowLeft;
 
   constructor(
     private router: Router
   ) { }
-
-  ngOnInit(): void {
-  }
 
   return() {
     this.router.navigate(['/']);

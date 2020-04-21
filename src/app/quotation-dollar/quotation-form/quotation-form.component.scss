@@ -63,3 +63,15 @@
         width: 80%;
     }
 }
+
+.error {
+    @extend .conversion;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    
+    p {
+        text-align: center;
+        color: red;
+    }
+}

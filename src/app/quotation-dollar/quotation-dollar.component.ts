@@ -1,15 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-quotation-dollar',
-  templateUrl: './quotation-dollar.component.html',
-  styleUrls: ['./quotation-dollar.component.scss']
+  templateUrl: './quotation-dollar.component.html'
 })
-export class QuotationDollarComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-}
+export class QuotationDollarComponent { }
